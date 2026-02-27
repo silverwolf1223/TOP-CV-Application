@@ -2,6 +2,8 @@ import {useState} from "react";
 import "../form.css";
 import Education from "./education.jsx";
 import Experience from "./experience.jsx";
+import PDFView from './pdf.jsx';
+import html2pdf from 'html2pdf.js';
 
 function Form(){
     const [formState, setFormState] = useState({
@@ -121,6 +123,10 @@ function Form(){
         })
     }
 
+    function handleCheckPrint(e){
+        html2pdf(e.target)
+    }
+
     return <>
     <form>
         <fieldset>Contact Information
@@ -148,6 +154,7 @@ function Form(){
             {formState.experience.map((elem, i) => <Experience index={i} elem={elem} handleExperience={handleExperience} deleteExperience={deleteExperience}/>)}
         </fieldset>
     </form>
+    <PDFView />
 </>
 }
 
