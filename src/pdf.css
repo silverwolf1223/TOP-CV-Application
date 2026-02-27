@@ -1,0 +1,8 @@
+.preview {
+    background-color: grey;
+}
+
+.education *{
+    display: inline;
+    margin: 10px;  
+}

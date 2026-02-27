@@ -8,23 +8,24 @@ import html2pdf from 'html2pdf.js';
 function Form(){
     const [formState, setFormState] = useState({
         generalInfo: {
-            firstName:"",
-            lastName: "",
-            email: "",
-            phone: ""
+            firstName:"Sylvia",
+            lastName: "Burn",
+            email: "1234@gmail.com",
+            phone: "213-432-2222",
+            summary: ""
         },
         education: [{
-            degree: "",
-            college: "",
-            graduationDate: "",
+            degree: "bachelors in computer science",
+            college: "MIT",
+            graduationDate: "2222-12-22",
             id: 3
         }],
         experience: [{
-            jobTitle: "",
-            employer: "",
-            startDate: "",
-            endDate: "",
-            description: "",
+            jobTitle: "CEO of Apple",
+            employer: "Apple",
+            startDate: "2223-01-23",
+            endDate: "2227-12-05",
+            description: "I ran the shit",
             id: 3
         }]
     })
@@ -123,8 +124,8 @@ function Form(){
         })
     }
 
-    function handleCheckPrint(e){
-        html2pdf(e.target)
+    function handlePrint(e){
+        html2pdf(e)
     }
 
     return <>
@@ -142,6 +143,10 @@ function Form(){
                 <label>Phone: </label>
                 <input name="phone" onChange={handleInfo} value={formState.generalInfo.phone}></input>
             </div>
+            <div>
+                <label>Short Summary: </label>
+                <textarea name="summary" onChange={handleInfo} value={formState.generalInfo.summary}></textarea>
+            </div>
         </fieldset>
         <fieldset>
             Education
@@ -154,7 +159,7 @@ function Form(){
             {formState.experience.map((elem, i) => <Experience index={i} elem={elem} handleExperience={handleExperience} deleteExperience={deleteExperience}/>)}
         </fieldset>
     </form>
-    <PDFView />
+    <PDFView info={formState.generalInfo} education={formState.education} experience={formState.experience} printFunction={handlePrint}/>
 </>
 }
 
