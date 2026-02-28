@@ -12,7 +12,7 @@ function Form(){
             lastName: "Burn",
             email: "1234@gmail.com",
             phone: "213-432-2222",
-            summary: ""
+            summary: "I am a recent gradutate from utsa. I have several years of experience in coding and UI development."
         },
         education: [{
             degree: "bachelors in computer science",

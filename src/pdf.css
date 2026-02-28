@@ -1,8 +1,30 @@
 .preview {
-    background-color: grey;
+    background-color: white;
+    outline: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 5px;
+    width: 210mm;
+    height: 297mm;
+    margin: 0;
+    padding: 0;
+    gap: 0;
 }
 
 .education *{
     display: inline;
     margin: 10px;  
+}
+
+.contactInfo {
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+}
+
+.absoluteButton {
+    position: relative;
+    z-index: 1;
 }

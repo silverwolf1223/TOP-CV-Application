@@ -5,11 +5,11 @@ export default function PDFView(props){
     const[show, setShow] = useState(false);
 
     return <>
-        <button onClick={() => setShow(!show)}>View PDF</button>
+        <button className="absoluteButton" onClick={() => setShow(!show)}>View PDF</button>
         {show && <><div className="preview">
                <h1>{props.info.firstName} {props.info.lastName}</h1>
                <h3>Contact Info</h3>
-               <div>
+               <div className="contactInfo">
                 <p>Phone: {props.info.phone}</p>
                 <p>Email: {props.info.email}</p>
                </div>
@@ -43,7 +43,7 @@ export default function PDFView(props){
                 </div>
                })}
         </div>
-        <button type="button" onClick={() => props.printFunction(document.querySelector(".preview"))}>print</button>
+        <button className="absoluteButton" type="button" onClick={() => props.printFunction(document.querySelector(".preview"))}>print</button>
         </>}
     </>
 }
