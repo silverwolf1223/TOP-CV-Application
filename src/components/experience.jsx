@@ -15,7 +15,7 @@ export default function Experience(props){
             <input type="date" name="endDate" data-index={props.index} onChange={props.handleExperience} value={props.elem.endDate}></input>
         </div>
         <div>
-            <label>General Description: </label>
+            <label className="taLabel">General Description: </label>
             <textarea name="description" data-index={props.index} onChange={props.handleExperience} value={props.elem.description}></textarea>
         </div>
         <button type="button" onClick={() => props.deleteExperience(props.index)}>delete</button>

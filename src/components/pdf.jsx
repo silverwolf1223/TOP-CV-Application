@@ -1,49 +1,56 @@
 import { useState } from 'react';
 import '../pdf.css';
+import html2pdf from 'html2pdf.js';
 
 export default function PDFView(props){
     const[show, setShow] = useState(false);
 
     return <>
-        <button className="absoluteButton" onClick={() => setShow(!show)}>View PDF</button>
-        {show && <><div className="preview">
-               <h1>{props.info.firstName} {props.info.lastName}</h1>
-               <h3>Contact Info</h3>
-               <div className="contactInfo">
+        {!show && <button className="pdfButton" type="button" onClick={() => setShow(!show)}>View PDF</button>}
+        {show && <><div className="previewContainer"><div id="pdf" className="preview">
+            <h1>{props.info.firstName} {props.info.lastName}</h1>
+            <h3>Contact Info</h3>
+            <div className="contactInfo">
                 <p>Phone: {props.info.phone}</p>
                 <p>Email: {props.info.email}</p>
-               </div>
-               <h2>Personal Profile</h2>
-               <p>{props.info.summary}</p>
-               <h2>Education</h2>
-               {props.education.map((e) => {
-                return <div className="education">
-                    <div>
-                        <h4>Graduation Date:</h4>
-                        <p>{e.graduationDate}</p>
-                    </div>
-                    <div>
-                        <h4>{e.degree}</h4>
-                    </div>
-                    <div>
-                        <h4>{e.college}</h4>
-                    </div>
+            </div>
+            <fieldset className="line">
+                <legend>Personal Profile</legend>
+            </fieldset>
+            <p className="summary">{props.info.summary}</p>
+            <fieldset className="line">
+                <legend>Education</legend>
+            </fieldset>
+            {props.education.map((e) => {
+            return <div className="education">
+                <div>
+                    <h2>{e.degree}</h2>
                 </div>
-               })}
-               <h2>Experience</h2>
-               {props.experience.map((e) => {
-                return <div className="experience">
-                    <h4>{e.jobTitle}</h4>
-                    <p>{e.employer}</p>
-                    <label>Start Date</label>
-                    <p>{e.startDate}</p>
-                    <label>End Date</label>
-                    <p>{e.endDate}</p>
-                    <p>{e.description}</p>
+                <div>
+                    <p>{e.college}</p>
                 </div>
-               })}
+                <div>
+                    <p>Graduation Date: {e.graduationDate}</p>
+                </div>
+            </div>
+            })}
+            <fieldset className="line">
+                <legend>Experience</legend>
+            </fieldset>
+            {props.experience.map((e) => {
+            return <div className="experience">
+                <h2>{e.jobTitle}</h2>
+                <p>{e.employer}</p>
+                <p>{e.startDate} - {e.endDate}</p>
+                <p>{e.description}</p>
+            </div>
+            })}
         </div>
-        <button className="absoluteButton" type="button" onClick={() => props.printFunction(document.querySelector(".preview"))}>print</button>
+        </div>
+        <div className="absoluteButton">
+            <button className="pdfButton" type="button" onClick={() => setShow(!show)}>View PDF</button>
+            <button className="pdfButton" type="button" onClick={() => html2pdf(document.querySelector("#pdf"))}>print</button>
+        </div>
         </>}
     </>
 }

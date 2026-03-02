@@ -1,2 +1,23 @@
 Form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+Form fieldset{
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+textarea {
+    width: 400px;
+    height: 100px;
+}
+
+.taLabel {
+    text-align: start;
+    justify-self: start;
 }

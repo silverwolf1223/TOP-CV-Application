@@ -1,30 +1,95 @@
+.previewContainer {
+    position: absolute;
+    top: 50px;
+}
+
 .preview {
     background-color: white;
     outline: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: absolute;
-    top: 5px;
     width: 210mm;
-    height: 297mm;
+
     margin: 0;
     padding: 0;
+    padding-bottom: 10vh;
     gap: 0;
 }
 
+h1 {
+    margin: 0;
+}
+
+h3 {
+    margin: 0px;
+    margin-top: 10px;
+}
+
+.summary {
+    width: 60%;
+}
+
 .education *{
-    display: inline;
-    margin: 10px;  
+    display: flex;
+    justify-content: start;
+    margin: 0;
+}
+
+.education {
+    width: 60%;
+    gap: 0;
+    padding: 0;
+    margin: 5px;
+}
+
+.experience {
+    width: 60%;
+    gap: 0;
+    padding: 0;
+    margin: 5px;
+}
+
+.experience *{
+    display: flex;
+    justify-content: start;
+    margin: 0;
 }
 
 .contactInfo {
     display: flex;
     justify-content: space-between;
     width: 50%;
+    margin: 0px;
 }
 
 .absoluteButton {
-    position: relative;
-    z-index: 1;
+    position: absolute;
+    top: 10px;
+    /* z-index: 1; */
+}
+
+.line {
+    margin: 25px auto;
+    height: 1px;
+    padding: 0;
+    width: 70%;
+    border: none;
+    border-top: 3px solid maroon;
+}
+
+.line legend {
+    text-align: start;
+    padding: 0 20px;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.pdfButton {
+    border: none;
+    border-radius: 999px;
+    width: 100px;
+    height: 30px;
+    background-color: maroon;
+    color: white;
 }

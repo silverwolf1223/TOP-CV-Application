@@ -3,7 +3,6 @@ import "../form.css";
 import Education from "./education.jsx";
 import Experience from "./experience.jsx";
 import PDFView from './pdf.jsx';
-import html2pdf from 'html2pdf.js';
 
 function Form(){
     const [formState, setFormState] = useState({
@@ -12,11 +11,11 @@ function Form(){
             lastName: "Burn",
             email: "1234@gmail.com",
             phone: "213-432-2222",
-            summary: "I am a recent gradutate from utsa. I have several years of experience in coding and UI development."
+            summary: "Experienced web developer with a passion for creating user-friendly and visually appealing websites. Skilled in HTML, CSS, and JavaScript, with a focus on front-end development. Proven track record of delivering high-quality projects on time and within budget."
         },
         education: [{
             degree: "bachelors in computer science",
-            college: "MIT",
+            college: "Massachusetts Institute of Technology",
             graduationDate: "2222-12-22",
             id: 3
         }],
@@ -25,7 +24,7 @@ function Form(){
             employer: "Apple",
             startDate: "2223-01-23",
             endDate: "2227-12-05",
-            description: "I ran the shit",
+            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
             id: 3
         }]
     })
@@ -124,10 +123,6 @@ function Form(){
         })
     }
 
-    function handlePrint(e){
-        html2pdf(e)
-    }
-
     return <>
     <form>
         <fieldset>Contact Information
@@ -144,7 +139,7 @@ function Form(){
                 <input name="phone" onChange={handleInfo} value={formState.generalInfo.phone}></input>
             </div>
             <div>
-                <label>Short Summary: </label>
+                <label className="taLabel">Short Summary: </label>
                 <textarea name="summary" onChange={handleInfo} value={formState.generalInfo.summary}></textarea>
             </div>
         </fieldset>
@@ -158,8 +153,8 @@ function Form(){
             <button type="button" onClick={addExperience}>Add Experience</button>
             {formState.experience.map((elem, i) => <Experience index={i} elem={elem} handleExperience={handleExperience} deleteExperience={deleteExperience}/>)}
         </fieldset>
+        <PDFView info={formState.generalInfo} education={formState.education} experience={formState.experience}/>
     </form>
-    <PDFView info={formState.generalInfo} education={formState.education} experience={formState.experience} printFunction={handlePrint}/>
 </>
 }
 
