@@ -1,5 +1,5 @@
 import {useState} from "react";
-import "../form.css";
+import "../styles/form.css";
 import Education from "./education.jsx";
 import Experience from "./experience.jsx";
 import PDFView from './pdf.jsx';

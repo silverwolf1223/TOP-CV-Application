@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import '../pdf.css';
+import '../styles/pdf.css';
 import html2pdf from 'html2pdf.js';
 
 export default function PDFView(props){
