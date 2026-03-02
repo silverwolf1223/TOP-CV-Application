@@ -7,24 +7,24 @@ import PDFView from './pdf.jsx';
 function Form(){
     const [formState, setFormState] = useState({
         generalInfo: {
-            firstName:"Sylvia",
-            lastName: "Burn",
-            email: "1234@gmail.com",
-            phone: "213-432-2222",
-            summary: "Experienced web developer with a passion for creating user-friendly and visually appealing websites. Skilled in HTML, CSS, and JavaScript, with a focus on front-end development. Proven track record of delivering high-quality projects on time and within budget."
+            firstName:"",
+            lastName: "",
+            email: "",
+            phone: "",
+            summary: ""
         },
         education: [{
-            degree: "bachelors in computer science",
-            college: "Massachusetts Institute of Technology",
-            graduationDate: "2222-12-22",
+            degree: "",
+            college: "",
+            graduationDate: "",
             id: 3
         }],
         experience: [{
-            jobTitle: "CEO of Apple",
-            employer: "Apple",
-            startDate: "2223-01-23",
-            endDate: "2227-12-05",
-            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            jobTitle: "",
+            employer: "",
+            startDate: "",
+            endDate: "",
+            description: "",
             id: 3
         }]
     })
@@ -126,32 +126,39 @@ function Form(){
     return <>
     <form>
         <fieldset>Contact Information
-            <div>
-                <label>First Name: </label>
-                <input name="firstName" onChange={handleInfo} value={formState.generalInfo.firstName}></input>
-                <label>Last Name: </label>
-                <input name="lastName" onChange={handleInfo} value={formState.generalInfo.lastName}></input>
+            <div className="contactInfo">
+
+                    <p className="label">First Name: </p>
+                    <input name="firstName" onChange={handleInfo} value={formState.generalInfo.firstName}></input>
+
+                    <p className="label">Last Name: </p>
+                    <input name="lastName" onChange={handleInfo} value={formState.generalInfo.lastName}></input>
+
             </div>
-            <div>
-                <label>Email: </label>
-                <input name="email" type="email" onChange={handleInfo} value={formState.generalInfo.email}></input>
-                <label>Phone: </label>
-                <input name="phone" onChange={handleInfo} value={formState.generalInfo.phone}></input>
+            <div className="contactInfo">
+
+                    <p className="label">Email: </p>
+                    <input name="email" type="email" onChange={handleInfo} value={formState.generalInfo.email}></input>
+
+                    <p className="label">Phone: </p>
+                    <input name="phone" onChange={handleInfo} value={formState.generalInfo.phone}></input>
+
+                
             </div>
-            <div>
-                <label className="taLabel">Short Summary: </label>
+            <div className="contactInfo">
+                <p className="taLabel">Short Summary: </p>
                 <textarea name="summary" onChange={handleInfo} value={formState.generalInfo.summary}></textarea>
             </div>
         </fieldset>
         <fieldset>
             Education
             <button type="button" onClick={addEducation}>Add Education</button>
-            {formState.education.map((elem, i) => <Education index={i} elem={elem} handleEducation={handleEducation} deleteEducation={deleteEducation}/>)}
+            {formState.education.map((elem, i) => <Education index={i} elem={elem} handleEducation={handleEducation} deleteEducation={deleteEducation} className="education"/>)}
         </fieldset>
         <fieldset>
             Work Experience
             <button type="button" onClick={addExperience}>Add Experience</button>
-            {formState.experience.map((elem, i) => <Experience index={i} elem={elem} handleExperience={handleExperience} deleteExperience={deleteExperience}/>)}
+            {formState.experience.map((elem, i) => <Experience index={i} elem={elem} handleExperience={handleExperience} deleteExperience={deleteExperience} className="experience"/>)}
         </fieldset>
         <PDFView info={formState.generalInfo} education={formState.education} experience={formState.experience}/>
     </form>

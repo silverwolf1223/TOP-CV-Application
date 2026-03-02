@@ -1,21 +1,21 @@
 
 
 export default function Experience(props){
-    return <div key={props.elem.id}>
+    return <div key={props.elem.id} className={props.className}>
         <div>
-            <label>Job Title: </label>
+            <p className="label">Job Title: </p>
             <input name="jobTitle" data-index={props.index} onChange={props.handleExperience} value={props.elem.jobTitle}></input>
-            <label>Employer: </label>
+            <p className="label">Employer: </p>
             <input name="employer" data-index={props.index} onChange={props.handleExperience} value={props.elem.employer}></input>
         </div>
         <div>
-            <label>Start Date: </label>
+            <p className="label">Start Date: </p>
             <input type="date" name="startDate" data-index={props.index} onChange={props.handleExperience} value={props.elem.startDate}></input>
-            <label>End Date: </label>
+            <p className="label">End Date: </p>
             <input type="date" name="endDate" data-index={props.index} onChange={props.handleExperience} value={props.elem.endDate}></input>
         </div>
         <div>
-            <label className="taLabel">General Description: </label>
+            <p className="taLabel">General Description: </p>
             <textarea name="description" data-index={props.index} onChange={props.handleExperience} value={props.elem.description}></textarea>
         </div>
         <button type="button" onClick={() => props.deleteExperience(props.index)}>delete</button>

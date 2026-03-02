@@ -1,17 +1,17 @@
 
 
 export default function Education(props){
-    return <div key={props.elem.id}>
+    return <div key={props.elem.id} className={props.className}>
         <div>
-            <label>Degree: </label>
+            <p className="label">Degree:</p>
             <input name="degree" data-index={props.index} onChange={props.handleEducation} value={props.elem.degree}></input>
         </div>
         <div>
-            <label>School: </label>
+            <p className="label">School:</p>
             <input name="college" data-index={props.index} onChange={props.handleEducation} value={props.elem.college}></input>
         </div>
         <div>
-            <label>Gradutation Date: </label>
+            <p className="label">Gradutation Date: </p>
             <input type="date" name="graduationDate" data-index={props.index} onChange={props.handleEducation} value={props.elem.graduationDate}></input>
         </div>
         <button type="button" onClick={() => props.deleteEducation(props.index)}>delete</button>

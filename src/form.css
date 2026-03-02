@@ -1,8 +1,19 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    gap: 0;
+}
+
 Form {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
+    height: 100vh;
+    border: 5px solid maroon;
+    box-sizing: border-box;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
 Form fieldset{
@@ -10,14 +21,79 @@ Form fieldset{
     display: flex;
     flex-direction: column;
     align-items: center;
+    border: none;
+    border-bottom: dashed;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+p {
+    font-size: 1rem;
+    font-weight: 300;
 }
 
 textarea {
     width: 400px;
     height: 100px;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 3px;
 }
 
 .taLabel {
     text-align: start;
     justify-self: start;
+}
+
+button {
+    border: none;
+    border-radius: 999px;
+    min-width: 100px;
+    height: 30px;
+    background-color: maroon;
+    color: white;
+}
+
+.contactInfo {
+    width: 100%;
+
+    /* display: flex;
+    justify-content: space-between; */
+}
+
+.education {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.experience {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.label {
+    min-width: 100px;
+    display: inline-block;
+}
+
+input {
+    display: inline-block;
+    width: 150px;
+    overflow: visible;
+    max-width: none;
+    border: none;
+    border-bottom: 2px solid brown;
+    border-right: 2px solid brown;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 10px;
+    background-color: none;
+    margin-right: 10px;
+}
+
+input:focus-visible {
+    outline: none;
+}
+
+textarea {
+
 }
